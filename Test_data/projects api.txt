@@ -1,0 +1,236 @@
+1. Show contract and sourcing event check box not displayed. Also they are not included in the API in and Out fields on the dev PR(r23)
+2. Just create the project with all the custom fields included along w/ the s/m fields such as (start date, end date , commodity, display 
+  warning message, parent(owner), content group)
+3. Validating the project creation by giving alphabets to the number custom fields.
+
+I.W/ s/m basic fields:
+----------------------
+
+1. able to create the projects by using the tag <user-groups></user-groups> id = 352
+(but in UI it displayed under the projects datatable)
+
+open project: https://dashmaster24-0.coupadev.com/api/projects/355 (xml)
+open Project: https://dashmaster24-0.coupadev.com/api/projects/356 (json)
+closed project: https://dashmaster24-0.coupadev.com/api/projects/353 (xml)
+closed project: https://dashmaster24-0.coupadev.com/api/projects/357(json)
+
+closed project(w/ owner): https://dashmaster24-0.coupadev.com/api/projects/357(json)
+
+
+
+1.able to pass the values(commodity, owner) separately 
+but together I am not able to create the project in json fromat for both open and closed group
+
+Scenario 1:
+1.Try to create duplicate project: shows validation error "Name has already been taken"
+2."An open or ad hoc group cannot be an approver" - while give true values for both open&can can-approve 
+3.non existing project name as owner - '[Unable to find valid UserGroup record for owner with keys 
+{"name"=>"\"yerew\""}. Possible keys are ["id", "name"]. Please verify your xml.'
+4. duplicate user as members - able to create project https://dashmaster24-0.coupadev.com/api/projects/369 and 368 
+(UI it does not display the duplicated members) (validation error msg does not displays)
+5. able to create the inactive project. (expected)
+
+Scenario 2:
+1. User is not able to create a project by entering the Template name and ID alone.
+
+
+GET response "Template group" not displayed and POSt also not working 
+
+
+PUT: 
+1.project duplication and both fields true -> shows proper validation method
+2.except (verify whether the user is able to update a project by entering unknown 
+or inactive user or duplicate user details in the <user> field tag.) -> without showing any validation user is able to edit the project
+3.user is able to deactivate the project
+
+--------------------------------------------------------------------------------------------------------
+II.Additional validations:
+
+i). Able to create projects using the payload format<user-group> through the endpoint /api/projects
+    (final result: projects created and saved on the projects datatable) https://dashmaster24-0.coupadev.com/api/projects/386
+
+---------------------------------------------------------------------------------------------------------
+
+ii). UnAble to create projects via endpoint using /api/user_groups by give the type as project.
+
+<user-group>
+  <type>Project</type>
+  <name>Ram api pro3b</name>
+</user-group>
+
+iii). UnAble to create projects via endpoint using /api/user_groups by using the project payload w/o giving type
+
+<project>
+  <name>Ram api pro3c</name>
+</project>
+
+<project>
+  <name>Ram api12c</name>
+</project>
+
+iv). Able to create the projects through /api/projects
+
+<user-group>
+    <type>Project</type>
+    <name>Ram api pro3a by type</name>
+</user-group>
+
+
+v). Try to GET the groups using the end point /api/projects shows proper validation msg.
+      <error>No results match your search criteria.</error> expected
+
+vi). Try to GET the projects using the end point /api/user_groups does not show the proper validation msg.
+
+Vii). Applied filter concepts like shallow query, name , display date range warning, id, can approve, open, active
+
+viii). Able to edit the project using endpoint /api/user_groups/id
+
+<project>
+    <name>Ram api pro3a evugep</name>
+</project>
+
+ix). Editng the usergroups via /projects end point shows proper <error>Project with that id was not found.</error>(expected).
+
+
+
+
+<project>
+  <name>Ram api pro2</name>
+  <active>true</active>
+  <open>true</open>
+  <can-approve>false</can-approve>
+  <description>Project API Testing.</description>
+  <mention-name>ramapipro1</mention-name>
+  <start-date>2019-02-28T00:00:00-05:00</start-date>
+  <end-date>2019-03-13T00:00:00-04:00</end-date>
+  <display-date-range-warning>true</display-date-range-warning>
+  <users>
+    <user>
+      <id>287</id>
+    </user>
+    <user>
+      <id>499</id>
+    </user>
+    <user>
+      <id>500</id>
+    </user>
+    <user>
+      <id>501</id>
+    </user>
+  </users>
+  <owner> 
+     <id>71</id>
+  </owner>
+  <commodity>
+    <id>77</id>
+    <name>11</name>
+  </commodity>
+  <content-groups>
+    <content-group>
+      <name>Everyone</name>
+    </content-group>
+  </content-groups>
+  </project>
+------------------------------------------------------------------
+<project>
+<template-group>
+<id>22</id>
+<name>rampt2</name>
+</template-group>
+<active>false</active>
+<description>api usage</description>
+<content-groups>
+    <content-group>
+        <id>1</id>
+        <name>Everyone</name>
+    </content-group>
+</content-groups>
+</project>
+
+---------------------------------------------------------------
+
+<project>
+  <name>Ram api pro3a</name>
+  <template-group>
+  <id>22</id>
+  <name>rampt2</name>
+  </template-group>
+</project>
+
+-----------------------------------------------------------------
+
+<project>
+  <type>Project</type> || there is no impact with type 
+  <name>Ram api pro2 w/ allbcfs1</name>
+  <active>true</active>
+  <open>true</open>
+  <can-approve>false</can-approve>
+  <description>Project API Testing.</description>
+  <mention-name>ramapipro1</mention-name>
+  <start-date>2019-02-28T00:00:00-05:00</start-date>
+  <end-date>2019-03-13T00:00:00-04:00</end-date>
+  <display-date-range-warning>true</display-date-range-warning>
+  <users>
+    <user>
+      <id>287</id>
+    </user>
+    <user>
+      <id>499</id>
+    </user>
+    <user>
+      <id>500</id>
+    </user>
+    <user>
+      <id>501</id>
+    </user>
+  </users>
+  <owner> 
+     <id>71</id>
+  </owner>
+  <commodity>
+    <id>77</id>
+    <name>11</name>
+  </commodity>
+  <content-groups>
+    <content-group>
+      <id type="integer">1</id>
+      <name>Everyone</name>
+      <description>ret edit everyone content group</description>
+    </content-group>
+  </content-groups>
+  <custom-fields>
+    <utextfield>RamTF</utextfield>
+    <utextbox>RamTB</utextbox>
+    <unumber>653462</unumber>
+    <udropdown>two</udropdown>
+    <date>2019-02-28</date>
+    <uradiogroup>one</uradiogroup>
+    <ucheckbox>true</ucheckbox>
+    <ulookup>
+      <id>1097</id>
+      <name>lv2</name>
+      <external-ref-num>102</external-ref-num>
+      <external-ref-code>102</external-ref-code>
+    </ulookup>   
+    <uuser>
+    <login>Ram</login>
+    </uuser>
+    <uapprovalgroup>
+      <id>71</id>
+    </uapprovalgroup>
+    <umultiselect>
+        <umultiselect>
+            <id>1097</id>
+            <external-ref-code>102</external-ref-code>
+        </umultiselect>
+    </umultiselect>
+    <umoney>
+      <amount>1900</amount>
+      <currency>
+        <code>USD</code>
+     </currency>
+    </umoney>
+  </custom-fields>
+</project>
+
+
