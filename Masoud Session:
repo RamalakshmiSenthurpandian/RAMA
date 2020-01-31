@@ -1,0 +1,96 @@
+Masoud Session:
+---------------
+type of mifgrations:
+
+1.online  ----- Acessing the data when applctn is running (we can add a coulmn but not able to rename/chaning the type of columns)(runs when the pold instance is up)(does not impact the pre-existing instances)
+  --> PT online migration --it will make a copy of exisiting tables(do all the changes and renamed it for future use)
+2.offline/Regular migration(instance goes to maintenance mode for few mins while running offline migration) 
+     ---> O.W called as blocking migration(allowed only for major release)
+
+3.post-Deploy Migrations
+---> 3.a.Background migration(takes a long time to complete across multiple upgrades)(not a release dependent if our instance falls under this category we need to resume those back migs)(big and long running)
+---> 3.b.Post Upgrade migrations(have a sequential order ot run)(coupa have it most instead of beckground Mig)(release dependent needs to executed only on the respective release instances)(small data migration)
+        - runs one at a time.
+        - triggered at the end of upgrade and continues to run after the upgrade.
+
+
+        bck mig : pause
+                            }----old version is up
+              |
+        db:online mig
+              |
+              db:post_upgrade_auto complete
+              |                               }------instance in maintanence mode
+              db:migrate
+              |
+              db:post_upgrade:migrate
+              |                            }----- new version is up
+              brackground mig:resume
+
+
+2 type upgrade:
+---------------
+
+----> upgrade quickie   (for minor changes)               ---------- main diff will not take a backup
+----> after party & back mig (regenerate all those datas)
+
+
+Checking migration status with rake tests:
+------------------------------------------
+
+----> db:online_migrate:status
+----> db:migrade:status          
+----> db:post_upgrade:status
+
+Reruning mig
+-----------
+
+--> Delete mig entry
+   - schema_migrations table from online/offline(DELETE from background_migrations where version=XXXX)
+   - Delete background_migrations_tasks where version=XXXX
+
+--> Trigger migrations with rake tests:
+
+   - db:online_migration
+   - db:migrate               } these all the commands which executed at backend while upgrading the instance through cntrol next)
+   - db:post_migrade:update
+ 
+   -----> skip migration (since it is not releated to module)
+
+   Validate == True ------ developer should right the respective validation to thier migrations
+
+
+Debugging from the rails console/Database:
+------------------------------------------
+
+Debugging from ui using "/background_migrations_tasks"
+
+issues and it solution while upgrading the instances
+
+- mysql:error:Deadlock(try to rerun the migration)
+
+
+
+Jenkins >> Execution Time: we can check the db migration execution times based on individual ID/ total db migration/ customer instancse dam migrations also.
+
+
+
+Day 2 (Hulk session):
+---------------------
+
+hulk-jenkins.coupadev.com
+
+Hulk parameters
+
+- test case
+- Deployment_type (auto update)
+- then deployment type
+- then select the snashot parameters
+
+after saving the it the build will send the request to the kickoff service to get the job status
+
+-->gray log:(jenkins>PRD>hulk production and select the build )(hulk-graylog.coupadev.com)
+user interface to query to 
+
+having totally 6 deployments (2 US- 2 EU - 2ap)
+

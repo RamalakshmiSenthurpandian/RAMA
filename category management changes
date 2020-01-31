@@ -1,0 +1,39 @@
+category managemnt changes 
+
+--- license and permission 
+  - need a contrct power app to see the contrct elements
+  - If a customer does not have a Contract power app they will not see the Contract panel on the Category Manager Dashboard.
+
+  ---Manage section under user profoile
+  ---going to add rules engine
+
+
+  Future Rule consideration:
+  --------------------------
+
+ 1.Primary and Secondary Associations
+We can consider pulling in object data based on primary or secondary associations.
+
+POs based on Commodities
+Suppliers based on preferred Commodities
+Contracts based on the Supplier's preferred Commodities
+Sourcing Events based on the winning Supplier
+
+Mapping Associations Setup (R28+)
+----------------------------------
+
+We can consider allowing customers to map an object to Commodities, Suppliers, or both (and in the future may have additional objects to make associations to as well)..  For example, if a customer would like PO spend data to come from the Commodity and not the Supplier, they can set it up to do so.
+
+'Category' Custom and System Fields (R28+)
+------------------------------------------
+In the future we would like to consider creating a new type of 'Category' Custom Field that can be added to objects.  This way a customer can set up the Category Custom Field on the Project object, for example, and explicitly set the value, per Project.
+
+We can also make it a system field, allowing them to make a first class association but as a standard part of the process, as well.
+
+
+Category setup
+--------------
+
+maximum 10 commodity and 50 suppliers 
+
+display of coupa commodity changed (will display under the user commodity section)

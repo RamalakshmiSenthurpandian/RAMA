@@ -1,0 +1,957 @@
+Lookup:
+-------
+
+- https://app-platform-r27-qa1.coupadev.com/lookups/22(Ram Lookup20)
+
+AVR:
+----
+
+AVR1 - Ram 20 seg COA AVR1(https://app-platform-r27-qa1.coupadev.com/account_validation_rules/20/edit)
+AVR2 - Ram AllCOA AVR3 Via API scenario 4(https://app-platform-r27-qa1.coupadev.com/account_validation_rules/21/edit)
+
+COA:
+----
+
+Ram 20 seg coa(https://app-platform-r27-qa1.coupadev.com/account_types/28)
+
+1.Request which satisfies AVR1:
+-------------------------------
+
+{
+ "account-type-name":"Ram 20 seg coa",
+        "segments":[
+          {
+            "segment-lookup-value-id":"114",
+            "segment-lookup-value-name":"ram lkp20 lkpv6",
+            "segment-lookup-value-external-ref-num": "060"
+          },
+          {
+            "segment-lookup-value-id":"128",
+            "segment-lookup-value-name":"ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+          },
+          {
+            "segment-lookup-value-id":"122",
+            "segment-lookup-value-name":"ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+          },
+          {
+            "segment-lookup-value-id":"119",
+            "segment-lookup-value-name":"ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+          },
+          {
+            "segment-lookup-value-id":"117",
+            "segment-lookup-value-name":"ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+          },
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+               {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          }
+        ]
+      }
+
+      Response:
+      ---------
+
+      {
+    "account-type-name": "Ram 20 seg coa",
+    "segments": [
+        {
+            "segment-lookup-value-id": "114",
+            "segment-lookup-value-name": "ram lkp20 lkpv6",
+            "segment-lookup-value-external-ref-num": "060"
+        },
+        {
+            "segment-lookup-value-id": "128",
+            "segment-lookup-value-name": "ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+        },
+        {
+            "segment-lookup-value-id": "122",
+            "segment-lookup-value-name": "ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+        },
+        {
+            "segment-lookup-value-id": "119",
+            "segment-lookup-value-name": "ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+        },
+        {
+            "segment-lookup-value-id": "117",
+            "segment-lookup-value-name": "ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        }
+    ],
+    "is-valid": "N",
+    "failed-validation-rules": [
+        {
+            "failed-rule-name": "Ram 20 seg COA AVR1",
+            "error-msg": "Ram 20 seg COA AVR1 msg"
+        }
+    ]
+}
+
+*******************************************************************************************
+
+2.Request which satifies the AVR2:(i.e, all coa AVR):
+-----------------------------------------------------
+
+{
+ "account-type-name":"Ram 20 seg coa",
+        "segments":[
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"128",
+            "segment-lookup-value-name":"ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+          },
+          {
+            "segment-lookup-value-id":"122",
+            "segment-lookup-value-name":"ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+          },
+          {
+            "segment-lookup-value-id":"119",
+            "segment-lookup-value-name":"ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+          },
+          {
+            "segment-lookup-value-id":"117",
+            "segment-lookup-value-name":"ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+          },
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+               {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          }
+        ]
+      }
+
+  Response:
+  ---------
+
+  {
+    "account-type-name": "Ram 20 seg coa",
+    "segments": [
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "128",
+            "segment-lookup-value-name": "ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+        },
+        {
+            "segment-lookup-value-id": "122",
+            "segment-lookup-value-name": "ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+        },
+        {
+            "segment-lookup-value-id": "119",
+            "segment-lookup-value-name": "ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+        },
+        {
+            "segment-lookup-value-id": "117",
+            "segment-lookup-value-name": "ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        }
+    ],
+    "is-valid": "N",
+    "failed-validation-rules": [
+        {
+            "failed-rule-name": "Ram AllCOA AVR3 Via API scenario 4",
+            "error-msg": "Ram All COA AVR3 Via API msg 20 segment scenario"
+        }
+    ]
+}
+
+******************************************************************************************
+
+3.Request to satisfy both the AVR1 and AVR2:
+--------------------------------------------
+
+{
+ "account-type-name":"Ram 20 seg coa",
+        "segments":[
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"128",
+            "segment-lookup-value-name":"ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+          },
+          {
+            "segment-lookup-value-id":"122",
+            "segment-lookup-value-name":"ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+          },
+          {
+            "segment-lookup-value-id":"119",
+            "segment-lookup-value-name":"ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+          },
+          {
+            "segment-lookup-value-id":"117",
+            "segment-lookup-value-name":"ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+          },
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+               {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          }
+        ]
+      }
+
+      Response:
+      ---------
+
+      {
+    "account-type-name": "Ram 20 seg coa",
+    "segments": [
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "128",
+            "segment-lookup-value-name": "ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+        },
+        {
+            "segment-lookup-value-id": "122",
+            "segment-lookup-value-name": "ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+        },
+        {
+            "segment-lookup-value-id": "119",
+            "segment-lookup-value-name": "ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+        },
+        {
+            "segment-lookup-value-id": "117",
+            "segment-lookup-value-name": "ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        }
+    ],
+    "is-valid": "N",
+    "failed-validation-rules": [
+        {
+            "failed-rule-name": "Ram 20 seg COA AVR1",
+            "error-msg": "Ram 20 seg COA AVR1 msg"
+        },
+        {
+            "failed-rule-name": "Ram AllCOA AVR3 Via API scenario 4",
+            "error-msg": "Ram All COA AVR3 Via API msg 20 segment scenario"
+        }
+    ]
+}
+
+********************************************************************************************
+
+4.Request w/ less segment concept by passing the values only to 5 segments over 20 segments:
+--------------------------------------------------------------------------------------------
+
+{
+ "account-type-name":"Ram 20 seg coa",
+        "segments":[
+          {
+            "segment-lookup-value-id":"114",
+            "segment-lookup-value-name":"ram lkp20 lkpv6",
+            "segment-lookup-value-external-ref-num": "060"
+          },
+          {
+            "segment-lookup-value-id":"128",
+            "segment-lookup-value-name":"ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+          },
+          {
+            "segment-lookup-value-id":"122",
+            "segment-lookup-value-name":"ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+          },
+          {
+            "segment-lookup-value-id":"119",
+            "segment-lookup-value-name":"ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+          },
+          {
+            "segment-lookup-value-id":"117",
+            "segment-lookup-value-name":"ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+          }
+        ]
+      }
+
+     Response:
+     ---------
+
+     
+*******************************************************************************************
+5.Request which doesn't statisfy the both AVR1 and AVR2:
+--------------------------------------------------------
+
+{
+ "account-type-name":"Ram 20 seg coa",
+        "segments":[
+          {
+            "segment-lookup-value-id":"114",
+            "segment-lookup-value-name":"ram lkp20 lkpv6",
+            "segment-lookup-value-external-ref-num": "060"
+          },
+          {
+            "segment-lookup-value-id":"128",
+            "segment-lookup-value-name":"ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+          },
+          {
+            "segment-lookup-value-id":"122",
+            "segment-lookup-value-name":"ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+          },
+          {
+            "segment-lookup-value-id":"119",
+            "segment-lookup-value-name":"ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+          },
+          {
+            "segment-lookup-value-id":"117",
+            "segment-lookup-value-name":"ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+          },
+          {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"120",
+            "segment-lookup-value-name":"ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+               {
+            "segment-lookup-value-id":"116",
+            "segment-lookup-value-name":"ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+          },
+          {
+            "segment-lookup-value-id":"125",
+            "segment-lookup-value-name":"ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+          },
+          {
+            "segment-lookup-value-id":"121",
+            "segment-lookup-value-name":"ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"127",
+            "segment-lookup-value-name":"ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          }
+        ]
+      }
+
+      Response:
+      ---------
+{
+    "account-type-name": "Ram 20 seg coa",
+    "segments": [
+        {
+            "segment-lookup-value-id": "114",
+            "segment-lookup-value-name": "ram lkp20 lkpv6",
+            "segment-lookup-value-external-ref-num": "060"
+        },
+        {
+            "segment-lookup-value-id": "128",
+            "segment-lookup-value-name": "ram lkp20 lkpv20",
+            "segment-lookup-value-external-ref-num": "200"
+        },
+        {
+            "segment-lookup-value-id": "122",
+            "segment-lookup-value-name": "ram lkp20 lkpv14",
+            "segment-lookup-value-external-ref-num": "140"
+        },
+        {
+            "segment-lookup-value-id": "119",
+            "segment-lookup-value-name": "ram lkp20 lkpv11",
+            "segment-lookup-value-external-ref-num": "110"
+        },
+        {
+            "segment-lookup-value-id": "117",
+            "segment-lookup-value-name": "ram lkp20 lkpv9",
+            "segment-lookup-value-external-ref-num": "090"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "120",
+            "segment-lookup-value-name": "ram lkp20 lkpv12",
+            "segment-lookup-value-external-ref-num": "120"
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "116",
+            "segment-lookup-value-name": "ram lkp20 lkpv8",
+            "segment-lookup-value-external-ref-num": "080"
+        },
+        {
+            "segment-lookup-value-id": "125",
+            "segment-lookup-value-name": "ram lkp20 lkpv17",
+            "segment-lookup-value-external-ref-num": "170"
+        },
+        {
+            "segment-lookup-value-id": "121",
+            "segment-lookup-value-name": "ram lkp20 lkpv13",
+            "segment-lookup-value-external-ref-num": "130"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "127",
+            "segment-lookup-value-name": "ram lkp20 lkpv19",
+            "segment-lookup-value-external-ref-num": "190"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        }
+    ],
+    "is-valid": "Y"
+}

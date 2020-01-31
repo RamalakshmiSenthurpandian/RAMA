@@ -1,0 +1,25 @@
+{
+        <account-type-name> "RamCOA3"</account-type-name>
+        <segments>
+            <segment>
+            <segment-lookup-value-id> "6537" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Ram lkpv5"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"300"</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "6537" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Ram lkpv5"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"300"</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "6537" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Ram lkpv5"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"300"</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "6537" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Ram lkpv5"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"300"</segment-lookup-value-external-ref-num>
+            </segment>
+        </segments>
+          

@@ -1,0 +1,88 @@
+Migration & End-to-End testing Issues:
+
+Editability:
+
+1.For field w/ required option the "Editability field" should be displayed in non-editable mode(applicable for existing and newly created forms)
+---> After migration the required fields are defaulted to "Responder & approvers" and the others options are disabled as expected
+   But it failed to display the "Editability field" in non-editable mode.
+2. Auto approve scenario works fine: the "Approver" option in the editaility field was disabled automatically for the forms enabled w/ "Auto Approve"
+3. manually added approver issue.(all the options are disabled except cancel button).(need to update as per migration)
+
+
+Defaulting issue:
+1.failed to fill the date field w/ default value(focus changed to the top of form in existing date field but able to add value in newly added date field) on both existing and new data https://coupadev.atlassian.net/browse/CD-172123?oldIssueView=true(while editing both draft&published form)
+
+DD/LKP:
+
+--failed to set the conditionality while changing the lookp option (existing /new data)
+
+
+Loader issue:
+
+- after uploading the file the lookup conditionality is not updated only the Drop down conditionality applied as per the update(form page)
+- invalid erorr message issue.
+
+
+
+Bug to be raised:
+
+1.Migration issue: Unable to set default value for the existing date field
+https://clone-groupon-cd-156011.coupadev.com/easy_forms/120
+
+Note: need to update it on the bug https://coupadev.atlassian.net/browse/CD-172123?oldIssueView=true.(also mention both review and information form data),  -------------- (Done)
+
+2.P1 bug for lookup (p2 performance issue) -------- (Done)
+3. existing bug in lkp loader.(need to confirm) -------------  confirmed not a performance issue (not able to update the lookup conditionality via loader)
+4.P3 bug for editablilty greyout issue.  https://coupadev.atlassian.net/browse/CD-176233?oldIssueView=true ----------------- (Done)
+5.manually added approver issue.(all the options are disabled except cancel button).(need to update as per migration) https://coupadev.atlassian.net/browse/CD-172103?oldIssueView=true   -------------------   (Done)
+ 
+
+Pending :
+
+- lookup default value
+- same para multi widget
+  ---> w/o conditionality.
+    - 1st value replaced by the  last value(same reporting name)
+    - diff reporting name (2 different values are displayed as per the selection)
+  ---> w/ cconditionality.
+     - reporting name error shpould be rasied (failed)
+     - 
+
+Loader single lkp alone with parameter(and continue)
+
+
+
+
+Upon completing the migration testing I can confirm that the user is able to apply and access the lookup and Dropdown conditionality to the forms(both existing and newly created) without any migration specofic issue.However the issues found during migration testing was reproducible in dashmaster(r26.coupadev.com) with latest commits.And that will be mentioned in the E2E ticket CD-175681 
+
+
+I have completed  E2E testing and everthing works for the following features:
+  - Drop down/Lookup general fields conditionality
+  - Defaulting value for date & multi checkboix widgets
+  - Forms Editability (Covered the basic scenario(auto approve and Requied fields concept)for text type s/m and custom field)
+
+Except the following Issues:
+1.Drop down/Lkp general fields conditionality:
+    - https://coupadev.atlassian.net/browse/CD-176231?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175386?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175368?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175367?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-174525?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-174515?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175166?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175147?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175355?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-174517?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-173104?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-171845?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-174348?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-171861?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175343?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-175338?oldIssueView=true
+2.Defaulting value for date & multi checkboix widgets:
+    - https://coupadev.atlassian.net/browse/CD-168224?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-174125?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-172123?oldIssueView=true
+    - https://coupadev.atlassian.net/browse/CD-164767?oldIssueView=true 
+- Editability(just verified the basic form creation with auto approve and Requied fields concept)
+    - https://coupadev.atlassian.net/browse/CD-176233?oldIssueView=true

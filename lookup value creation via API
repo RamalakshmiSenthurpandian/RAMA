@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lookup-values type="array">
+<lookup-value>
+  <name>ram lkpv3</name>
+  <external-ref-num>0003</external-ref-num>
+  <external-ref-code>0003</external-ref-code>
+  <is-default>false</is-default>
+  <lookup>
+    <id>57</id>
+    <name>Rama Lookup</name>
+  </lookup>
+</lookup-value>
+<lookup-value>
+  <name>ram lkpv4</name>
+  <external-ref-num>0004</external-ref-num>
+  <external-ref-code>0004</external-ref-code>
+  <is-default>false</is-default>
+  <lookup>
+    <id>57</id>
+    <name>Rama Lookup</name>
+  </lookup>
+</lookup-value>
+</lookup-values>

@@ -1,0 +1,28 @@
+Lookups:
+--------
+
+1.https://app-platform-r27-qa1.coupadev.com/lookups/10(Ram Lookup1)
+2.https://app-platform-r27-qa1.coupadev.com/lookups/17(Ram Lookup7)
+3.https://app-platform-r27-qa1.coupadev.com/lookups/18(Ram Lookup8)
+4.https://app-platform-r27-qa1.coupadev.com/lookups/19(Ram Lookup9)
+5.https://app-platform-r27-qa1.coupadev.com/lookups/20(Ram Lookup10)
+6.https://app-platform-r27-qa1.coupadev.com/lookups/21(Ram Lookup11)
+
+COAs:
+-----
+
+COA1:(RamAVRCOA6)https://app-platform-r27-qa1.coupadev.com/account_types/26
+COA2:(RamAVRCOA7)https://app-platform-r27-qa1.coupadev.com/account_types/27
+
+AVR1:
+-----
+
+ - All COA AVR Via UI:
+  https://app-platform-r27-qa1.coupadev.com/account_validation_rules/15/edit (Ram AllCOA AVR1 Via UI)
+ - All COA AVR Via Loader:
+  https://app-platform-r27-qa1.coupadev.com/account_validation_rules/16/edit (Ram AllCOA AVR2 Via Loader)
+ - All COA AVR Via API:
+  https://app-platform-r27-qa1.coupadev.com/account_validation_rules/17/edit
+(Ram AllCOA AVR2 Via API)
+
+

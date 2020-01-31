@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account-validation-rule>
+  <name>testing AVR edited</name>
+  <error-message>something is wrong with the account segments</error-message>
+  <description>hhh</description>
+  <active type="boolean">true</active>
+  <segment-1-condition>range</segment-1-condition>
+  <segment-1-min>1</segment-1-min>
+  <segment-1-max>10</segment-1-max>
+  <segment-2-condition>range</segment-2-condition>
+  <segment-2-min>A</segment-2-min>
+  <segment-2-max>C</segment-2-max>
+  <account-type>
+    <id type="integer">18</id>
+    <name>CCW COA</name>
+    <active type="boolean">true</active>
+    <currency>
+      <id type="integer">156</id>
+      <code>AED</code>
+    </currency>
+  </account-type>
+</account-validation-rule>

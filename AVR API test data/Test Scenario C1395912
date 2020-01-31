@@ -1,0 +1,92 @@
+lookup:
+https://app-platform-r27-qa1.coupadev.com/lookups/10
+
+Coa:
+https://app-platform-r27-qa1.coupadev.com/account_types/39/edit
+
+AVR:
+https://app-platform-r27-qa1.coupadev.com/account_validation_rules/31/edit
+
+
+
+String values in Range:
+
+{
+ "account-type-name":"RamstringCOA",
+        "segments":[
+          {
+            "segment-lookup-value-id":"129",
+            "segment-lookup-value-name":"same name and reference code"
+          },
+          {
+            "segment-lookup-value-id":"34",
+            "segment-lookup-value-name":"Ram lkpv1",
+            "segment-lookup-value-external-ref-num":"010"
+          },
+          {
+            "segment-lookup-value-id":"65",
+            "segment-lookup-value-name":"rack"
+          }
+         
+        ]
+      }
+
+      {
+ "account-type-name":"RamstringCOA",
+        "segments":[
+          {
+            "segment-lookup-value-id":"129",
+            "segment-lookup-value-name":"same name and reference code"
+          },
+          {
+            "segment-lookup-value-id":"34",
+            "segment-lookup-value-name":"Ram lkpv1",
+            "segment-lookup-value-external-ref-num":"010"
+          },
+          {
+            "segment-lookup-value-id":"129",
+            "segment-lookup-value-name":"same name and reference code"
+          }
+         
+        ]
+      }
+
+
+      Apply string to ref num:
+
+      {
+ "account-type-name":"RamstringCOA",
+        "segments":[
+          {
+            "segment-lookup-value-id":"66",
+            "segment-lookup-value-name":"string code value1",
+            "segment-lookup-value-external-ref-num":"apple"
+          },
+          {
+            "segment-lookup-value-id":"34",
+            "segment-lookup-value-name":"Ram lkpv1",
+            "segment-lookup-value-external-ref-num":"010"
+          },
+          {
+            "segment-lookup-value-id":"65",
+            "segment-lookup-value-name":"rack"
+          }
+         
+        ]
+      }
+
+      
+
+      - same as reference num "need to check it for parent child concept"
+      - lookup ty￼po need to add comment 
+      - static COA confirmation.
+      - Need to add steps in test rail for default lookup value
+      - Error message w/ long name.
+      
+
+
+Dev branch Testing:
+@vijayashree I have completed dev branch testing for this story.As per the implementation we are able to validate the account segments by referring it to the AVR exisitng in the Enterprise UI.
+
+All the scenarios are working fine except the following issues:
+-   

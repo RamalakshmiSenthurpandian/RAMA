@@ -1,0 +1,105 @@
+{
+ "account-type-name":"RamCOA3",
+        "segments":[
+          {
+            "segment-lookup-value-id":"6537",
+            "segment-lookup-value-name":"Ram lkpv5",
+            "segment-lookup-value-external-ref-num":"300"
+          },
+           {
+            "segment-lookup-value-id":"6537",
+            "segment-lookup-value-name":"Ram lkpv5",
+            "segment-lookup-value-external-ref-num":"300"
+          },
+           {
+            "segment-lookup-value-id":"6537",
+            "segment-lookup-value-name":"Ram lkpv5",
+            "segment-lookup-value-external-ref-num":"300"
+          },
+          {
+            "segment-lookup-value-id":"6540",
+            "segment-lookup-value-name":"Ram lkpv8",
+            "segment-lookup-value-external-ref-num":"apple"
+          },
+           {
+            "segment-lookup-value-id":"6541",
+            "segment-lookup-value-name":"Ram lkpv9",
+            "segment-lookup-value-external-ref-num":"ram@"
+           },
+          {
+            "segment-lookup-value-id":"6532",
+            "segment-lookup-value-name":"Ram lkpv1"
+          },
+           {
+            "segment-lookup-value-id":"6539",
+            "segment-lookup-value-name":"Ram lkpv7",
+            "segment-lookup-value-external-ref-num":"ram1"
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+            {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+           {
+            "segment-lookup-value-id":"6537",
+            "segment-lookup-value-name":"Ram lkpv5",
+            "segment-lookup-value-external-ref-num":"300"
+          },
+           {
+            "segment-lookup-value-id":"6537",
+            "segment-lookup-value-name":"Ram lkpv5",
+            "segment-lookup-value-external-ref-num":"300"
+          }
+          
+        ]
+      }

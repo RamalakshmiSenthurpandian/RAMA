@@ -1,0 +1,293 @@
+Test Scenario 1:
+----------------
+lookup:
+-------
+- https://app-platform-r27-qa1.coupadev.com/lookups/10 (w/o parent child hierarchy)
+- https://app-platform-r27-qa1.coupadev.com/lookups/11 (w/ single parent & child)
+- https://app-platform-r27-qa1.coupadev.com/lookups/12 (w/ Sequential parent & child)
+- https://app-platform-r27-qa1.coupadev.com/lookups/13 (w/o parent child and ref code1)
+- https://app-platform-r27-qa1.coupadev.com/lookups/14 (w/o parent child and ref code2)
+- https://app-platform-r27-qa1.coupadev.com/lookups/15 (w/o parent child and ref code3)
+
+COA w/ 4 segments:
+------------------
+
+RamAVRCOA1: https://app-platform-r27-qa1.coupadev.com/account_types/18
+
+AVR for RamAVRCOA1:
+-------------------
+Ram Avr1: https://app-platform-r27-qa1.coupadev.com/account_validation_rules/2/edit
+Ram Avr2: https://app-platform-r27-qa1.coupadev.com/account_validation_rules/4/edit(all 4 seg w/ range condition)
+Ram Avr3: https://app-platform-r27-qa1.coupadev.com/account_validation_rules/5/edit(all 4 seg w/ any values condition)
+Ram Avr4: https://app-platform-r27-qa1.coupadev.com/account_validation_rules/6/edit(all 4 seg w/ blank balue condition)
+
+COA w/ 3 segments and w/o any existing AVR:
+-------------------------------------------
+
+RamAVRCOA2: https://app-platform-r27-qa1.coupadev.com/account_types/19
+
+Static COA:
+-----------
+
+RamAVRstaticCOA1: https://app-platform-r27-qa1.coupadev.com/account_types/20
+
+
+------------------------------------------------------------------------------------------------------------
+
+Payload which satisfies AVR1:
+----------------------------
+{
+ "account-type-name":"RamAVRCOA1",
+        "segments":[
+          {
+            "segment-lookup-value-id":"34",
+            "segment-lookup-value-name":"Ram lkpv1",
+            "segment-lookup-value-external-ref-num": "010"
+          },
+          {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num": ""
+          },
+          {
+           "segment-lookup-value-id":"44",
+            "segment-lookup-value-name":"ram lkp3 lkpv1"
+            "segment-lookup-value-external-ref-num": "015"
+           
+          },
+          {
+            "segment-lookup-value-id":"45",
+            "segment-lookup-value-name":"ram lkp3 lkpv2"
+            "segment-lookup-value-external-ref-num":"367"
+          }
+          
+        ]
+      }
+
+      Response:
+      ---------
+      {
+    "account-type-name": "RamAVRCOA1",
+    "segments": [
+        {
+            "segment-lookup-value-id": "34",
+            "segment-lookup-value-name": "Ram lkpv1",
+            "segment-lookup-value-external-ref-num": "010"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segment-lookup-value-external-ref-num": ""
+        },
+        {
+            "segment-lookup-value-id": "44",
+            "segment-lookup-value-name": "ram lkp3 lkpv1",
+            "segment-lookup-value-external-ref-num": "015"
+        },
+        {
+            "segment-lookup-value-id": "45",
+            "segment-lookup-value-name": "ram lkp3 lkpv2",
+            "segment-lookup-value-external-ref-num": "367"
+        }
+    ],
+    "is-valid": "N",
+    "failed-validation-rules": [
+        {
+            "failed-rule-name": "Ram AVR1",
+            "error-msg": "Ram AVR1 msg"
+        }
+    ]
+}
+----------------------------------------------------------------------------------------------------------------
+payload which satisfies AVR2 and AVR3:
+--------------------------------------
+{
+ "account-type-name":"RamAVRCOA1",
+        "segments":[
+          {
+            "segment-lookup-value-id":"35",
+            "segment-lookup-value-name":"Ram lkpv2",
+            "segment-lookup-value-external-ref-num":"300"
+          },
+          {
+            "segment-lookup-value-id":"41",
+            "segment-lookup-value-name":"ram lkp2 lkpv2",
+            "segment-lookup-value-external-ref-num":"390"
+          },
+          {
+            "segment-lookup-value-id":"44",
+            "segment-lookup-value-name":"ram lkp3 lkpv1",
+            "segment-lookup-value-external-ref-num":"015"
+          },
+         {
+            "segment-lookup-value-id":"45",
+            "segment-lookup-value-name":"ram lkp3 lkpv2",
+            "segment-lookup-value-external-ref-num":"367"
+          } 
+        ]
+        }
+
+        Response:
+        ========
+        {
+    "account-type-name": "RamAVRCOA1",
+    "segments": [
+        {
+            "segment-lookup-value-id": "35",
+            "segment-lookup-value-name": "Ram lkpv2",
+            "segment-lookup-value-external-ref-num": "300"
+        },
+        {
+            "segment-lookup-value-id": "41",
+            "segment-lookup-value-name": "ram lkp2 lkpv2",
+            "segment-lookup-value-external-ref-num": "390"
+        },
+        {
+            "segment-lookup-value-id": "44",
+            "segment-lookup-value-name": "ram lkp3 lkpv1",
+            "segment-lookup-value-external-ref-num": "015"
+        },
+        {
+            "segment-lookup-value-id": "45",
+            "segment-lookup-value-name": "ram lkp3 lkpv2",
+            "segment-lookup-value-external-ref-num": "367"
+        }
+    ],
+    "is-valid": "N",
+    "failed-validation-rules": [
+        {
+            "failed-rule-name": "Ram AVR2",
+            "error-msg": "Ram AVR2 msg"
+        },
+        {
+            "failed-rule-name": "Ram AVR3",
+            "error-msg": "Ram AVR3 msg"
+        }
+    ]
+}
+--------------------------------------------------------------------------------------------------------------
+
+      Payload which doesn't meet any of the AVR's(AVR1,AVR2,AVR3,AVR4):
+      -----------------------------------------------------------------
+
+   {
+       "account-type-name":"RamAVRCOA1",
+        "segments":[
+          {
+            "segment-lookup-value-id":"64",
+            "segment-lookup-value-name":"Ram lkpv4",
+            "segement-lookup-value-external-ref-num":"700"
+          },
+          {
+            "segment-lookup-value-id":"43",
+            "segment-lookup-value-name":"ram lkp2 lkpv4",
+            "segement-lookup-value-external-ref-num":"765"
+          },
+          {
+            "segment-lookup-value-id":"46",
+            "segment-lookup-value-name":"ram lkp3 lkpv3",
+           "segement-lookup-value-external-ref-num":"534"
+          },
+         {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segement-lookup-value-external-ref-num":""
+          } 
+        ]
+      }
+
+      Response:
+      --------
+
+      {
+    "account-type-name": "RamAVRCOA1",
+    "segments": [
+        {
+            "segment-lookup-value-id": "64",
+            "segment-lookup-value-name": "Ram lkpv4",
+            "segement-lookup-value-external-ref-num": "700"
+        },
+        {
+            "segment-lookup-value-id": "43",
+            "segment-lookup-value-name": "ram lkp2 lkpv4",
+            "segement-lookup-value-external-ref-num": "765"
+        },
+        {
+            "segment-lookup-value-id": "46",
+            "segment-lookup-value-name": "ram lkp3 lkpv3",
+            "segement-lookup-value-external-ref-num": "534"
+        },
+        {
+            "segment-lookup-value-id": "",
+            "segment-lookup-value-name": "",
+            "segement-lookup-value-external-ref-num": ""
+        }
+    ],
+    "is-valid": "Y"
+}
+*******************************************************************************************************
+
+      Payoad for COA w/o any existing AVR:
+      ------------------------------------
+      {
+       "account-type-name":"RamAVRCOA2",
+        "segments":[
+          {
+            "segment-lookup-value-id":"57",
+            "segment-lookup-value-name":"ram lkp4 lkpv3"
+          },
+          {
+            "segment-lookup-value-id":"59",
+            "segment-lookup-value-name":"ram lkp5 lkpv2"
+          },
+          {
+            "segment-lookup-value-id":"61",
+            "segment-lookup-value-name":"ram lkp6 lkpv1"
+           
+          }
+        ]
+      }
+
+      Payload by passing the static account name:
+      -------------------------------------------
+
+      {
+ "account-type-name":"RamAVRstaticCOA1",
+        "segments":[
+          {
+            "segment-lookup-value-id":"57",
+            "segment-lookup-value-name":"ram lkp4 lkpv3"
+          },
+          {
+            "segment-lookup-value-id":"59",
+            "segment-lookup-value-name":"ram lkp5 lkpv2"
+          },
+          {
+            "segment-lookup-value-id":"61",
+            "segment-lookup-value-name":"ram lkp6 lkpv1"
+           
+          }
+        ]
+      }
+
+      it displays the account as valid w/ the HTTP standard code 200-ok:
+      ------------------------------------------------------------------
+
+      {
+    "account-type-name": "RamAVRstaticCOA1",
+    "segments": [
+        {
+            "segment-lookup-value-id": "57",
+            "segment-lookup-value-name": "ram lkp4 lkpv3"
+        },
+        {
+            "segment-lookup-value-id": "59",
+            "segment-lookup-value-name": "ram lkp5 lkpv2"
+        },
+        {
+            "segment-lookup-value-id": "61",
+            "segment-lookup-value-name": "ram lkp6 lkpv1"
+        }
+    ],
+    "is-valid": "Y"
+}

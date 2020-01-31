@@ -1,0 +1,50 @@
+{
+ "account-type-name":"RamCOA1w/segdependent",
+        "segments":[
+          {
+            "segment-lookup-value-id":"6536",
+            "segment-lookup-value-name":"Ram lkpv4",
+            "segment-lookup-value-external-ref-num":"010"
+          },
+           {
+            "segment-lookup-value-id":"",
+            "segment-lookup-value-name":"",
+            "segment-lookup-value-external-ref-num":""
+          },
+            {
+            "segment-lookup-value-id":"6545",
+            "segment-lookup-value-name":"Rlv2",
+            "segment-lookup-value-external-ref-num":"367"
+          },
+           {
+            "segment-lookup-value-id":"6546",
+            "segment-lookup-value-name":"Rlv3",
+            "segment-lookup-value-external-ref-num":"534"
+          }
+        ]
+      }
+
+       <account-type-name> "RamCOA1w/segdependent"</account-type-name>
+        <segments>
+            <segment>
+            <segment-lookup-value-id> "6536" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Ram lkpv4"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"010"</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "" </segment-lookup-value-id>
+            <segment-lookup-value-name> ""</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>""</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "6545" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Rlv2"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"367"</segment-lookup-value-external-ref-num>
+            </segment>
+            <segment>
+            <segment-lookup-value-id> "6546" </segment-lookup-value-id>
+            <segment-lookup-value-name> "Rlv3"</segment-lookup-value-name>
+            <segment-lookup-value-external-ref-num>"534"</segment-lookup-value-external-ref-num>
+            </segment>
+        </segments>
+          
