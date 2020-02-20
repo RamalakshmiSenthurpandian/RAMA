@@ -75,11 +75,10 @@ iv). Able to create the projects through /api/projects
     <name>Ram api pro3a by type</name>
 </user-group>
 
-
 v). Try to GET the groups using the end point /api/projects shows proper validation msg.
       <error>No results match your search criteria.</error> expected
 
-vi). Try to GET the projects using the end point /api/user_groups does not show the proper validation msg.
+vi). Try to GET the projects using the end point /api/user_groups does not show the proper validation msg.(need to rise a p3 bug)
 
 Vii). Applied filter concepts like shallow query, name , display date range warning, id, can approve, open, active
 
@@ -91,8 +90,11 @@ viii). Able to edit the project using endpoint /api/user_groups/id
 
 ix). Editng the usergroups via /projects end point shows proper <error>Project with that id was not found.</error>(expected).
 
+x). PUT project via endpoint /api/projects.
 
-
+<user-group>
+<name>389 pro edit1</name>
+</user-group>
 
 <project>
   <name>Ram api pro2</name>
@@ -160,7 +162,7 @@ ix). Editng the usergroups via /projects end point shows proper <error>Project w
 -----------------------------------------------------------------
 
 <project>
-  <type>Project</type> || there is no impact with type 
+  <type>Project</type> 
   <name>Ram api pro2 w/ allbcfs1</name>
   <active>true</active>
   <open>true</open>
