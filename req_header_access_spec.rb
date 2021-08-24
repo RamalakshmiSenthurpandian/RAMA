@@ -242,47 +242,48 @@ describe RequisitionHeadersController do
           get :requisition_header_list_csv
         end
         it 'Requistiion doc(with complete/incomplete/partial billing) access based on account group restriction for the users Us User' do
+          csv = CSV.parse(response.body, :headers => true)
           # Requisition (new/pending/approved) with complete billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_satisfying_AG2.description, "Req #")).to include draft_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_satisfying_AG2.description, "Req #")).to include pending_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_satisfying_AG2.description, "Req #")).to include approved_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_satisfying_AG2.description, "Req #", csv)).to include draft_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_satisfying_AG2.description, "Req #", csv)).to include pending_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_satisfying_AG2.description, "Req #", csv)).to include approved_req_header_satisfying_AG2.id
           # Requisition doc(with complete billing where one line satisfies AG2 and the other line does not satisfies the AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_satisfying_AG2.description, "Req #")).to include draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line2_not_satisfying_AG2.description, "Req #")).to have_content draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line1_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line2_not_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line1_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line2_not_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_satisfying_AG2.description, "Req #", csv)).to include draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with complete billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_req_header_not_satisfying_AG2.id
           # Requisition doc(with complete split billing) satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content draft_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content pend_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content app_req_header_split_billing_satisfying_AG2.id         
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content pend_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content app_req_header_split_billing_satisfying_AG2.id         
           # Requisition doc(with complete split billing) not satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content draft_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content pend_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content app_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pend_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content app_req_header_split_billing_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_blank_req_header_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing without satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_partial_blank_req_header_not_satisfying_AG2.id   
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_partial_blank_req_header_not_satisfying_AG2.id   
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing with satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_req_header_satisfying_AG2.id  
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_req_header_satisfying_AG2.id  
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_partial_req_header_not_satisfying_AG2.id
           # Requisition with incomplete billing
-          expect(get_data_from_column_on_requisition_table("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #")).to have_content draft_incomplete_billing_req_header.id
+          expect(get_data_from_data_table_columns("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #", csv)).to have_content draft_incomplete_billing_req_header.id
         end
       end
 
@@ -295,47 +296,48 @@ describe RequisitionHeadersController do
           get :requisition_header_list_csv
         end
         it 'Requisition doc(with complete/incomplete/partial billing) access based on account group restriction for the Taiwan User' do
+          csv = CSV.parse(response.body, :headers => true)
           # Requisition (new/pending/approved) with complete billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_satisfying_AG2.description, "Req #")).to have_content draft_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_satisfying_AG2.description, "Req #")).to have_content pending_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_satisfying_AG2.description, "Req #")).to have_content approved_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_satisfying_AG2.id
           # Requisition doc(with complete billing where one line satisfies AG2 and the other line does not satisfies the AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_satisfying_AG2.description, "Req #")).to have_content draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line2_not_satisfying_AG2.description, "Req #")).to have_content draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line1_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line2_not_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line1_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line2_not_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with complete billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_req_header_not_satisfying_AG2.id
           # Requisition doc(with complete split billing) satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content draft_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content pend_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content app_req_header_split_billing_satisfying_AG2.id         
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content pend_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content app_req_header_split_billing_satisfying_AG2.id         
           # Requisition doc(with complete split billing) not satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content draft_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content pend_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_no_content app_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pend_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_no_content app_req_header_split_billing_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_blank_req_header_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing without satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_partial_blank_req_header_not_satisfying_AG2.id   
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_partial_blank_req_header_not_satisfying_AG2.id   
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing with satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_req_header_satisfying_AG2.id  
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_req_header_satisfying_AG2.id  
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content draft_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content pending_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_no_content approved_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content draft_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content pending_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_no_content approved_partial_req_header_not_satisfying_AG2.id
           # Requisition with incomplete billing
-          expect(get_data_from_column_on_requisition_table("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #")).to have_content draft_incomplete_billing_req_header.id
+          expect(get_data_from_data_table_columns("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #", csv)).to have_content draft_incomplete_billing_req_header.id
         end
       end
       context 'Austria User restricted the AG4 with segment rules and belongs to COA B' do
@@ -347,12 +349,12 @@ describe RequisitionHeadersController do
           get :requisition_header_list_csv
         end
         it 'Requisition doc(with complete/incomplete/partial billing) access based on account group restriction for the Austria User' do
-          # Lines table should contain only 3 rows one is Requisition header,  other is incomplete billing line requisition line and the last is default draft cart row.
-          # Here the user restricted to AG with segment rules belongs to another chart of account can see the incomplete billing line of another COA.
-          # This issue will be fixed after the R32 AG security implementation.
-          expect(response.body.count("\n")).to eq 3
+          csv = CSV.parse(response.body, :headers => true)
+          # Lines table should contain only 2 rows one is requisition header and the other is the draft the line created for the logged user.
+          # Here the user restricted to AG with segment rules belongs to another chart of account cannot see the incomplete billing requisition of another COA.
+          expect(response.body.count("\n")).to eq 2
           # Requisition with incomplete billing
-          expect(get_data_from_column_on_requisition_table("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #")).to have_content draft_incomplete_billing_req_header.id
+          expect(get_data_from_data_table_columns("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #", csv)).to have_content draft_incomplete_billing_req_header.id
         end
       end
       context 'Fiji User restricted to default chart of account(COA A) restriction' do
@@ -364,47 +366,48 @@ describe RequisitionHeadersController do
           get :requisition_header_list_csv
         end
         it 'Requisition doc(with complete/incomplete/partial billing) access based on account group restriction for the Fiji User' do
+          csv = CSV.parse(response.body, :headers => true) 
           # Requisition (new/pending/approved) with complete billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_satisfying_AG2.description, "Req #")).to have_content draft_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_satisfying_AG2.description, "Req #")).to have_content pending_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_satisfying_AG2.description, "Req #")).to have_content approved_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_satisfying_AG2.id
           # Requisition doc(with complete billing where one line satisfies AG2 and the other line does not satisfies the AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_satisfying_AG2.description, "Req #")).to have_content draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line2_not_satisfying_AG2.description, "Req #")).to have_content draft_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line1_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line2_not_satisfying_AG2.description, "Req #")).to have_content pending_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line1_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line2_not_satisfying_AG2.description, "Req #")).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line1_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line2_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_one_line_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with complete billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line_not_satisfying_AG2.description, "Req #")).to have_content draft_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_req_line_not_satisfying_AG2.description, "Req #")).to have_content pending_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_req_line_not_satisfying_AG2.description, "Req #")).to have_content approved_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_req_header_not_satisfying_AG2.id
           # Requisition doc(with complete split billing) satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content draft_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content pend_req_header_split_billing_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #")).to have_content app_req_header_split_billing_satisfying_AG2.id         
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content pend_req_header_split_billing_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_satisfying_AG2.description, "Req #", csv)).to have_content app_req_header_split_billing_satisfying_AG2.id         
           # Requisition doc(with complete split billing) not satisfies AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_content draft_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_content pend_req_header_split_billing_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #")).to have_content app_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pend_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_content pend_req_header_split_billing_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", app_req_line1_split_billing_not_satisfying_AG2.description, "Req #", csv)).to have_content app_req_header_split_billing_not_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing with satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_blank_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_blank_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_blank_req_header_satisfying_AG2.id
           # Requisition (new/pending/approved) with partial(by left one segment as blank) billing without satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_content draft_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_content pending_partial_blank_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #")).to have_content approved_partial_blank_req_header_not_satisfying_AG2.id   
+          expect(get_data_from_data_table_columns("Items", draft_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_blank_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_blank_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_blank_req_header_not_satisfying_AG2.id   
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing with satisfying the account group AG2'
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_satisfying_AG2.description, "Req #")).to have_content draft_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_satisfying_AG2.description, "Req #")).to have_content pending_partial_req_header_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_satisfying_AG2.description, "Req #")).to have_content approved_partial_req_header_satisfying_AG2.id  
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_req_header_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_req_header_satisfying_AG2.id  
           # Requisition (new/pending/approved) with partial(by inactivating the lookup value) billing without satisfying the account group AG2
-          expect(get_data_from_column_on_requisition_table("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_content draft_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_content pending_partial_req_header_not_satisfying_AG2.id
-          expect(get_data_from_column_on_requisition_table("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #")).to have_content approved_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", draft_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content draft_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", pending_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content pending_partial_req_header_not_satisfying_AG2.id
+          expect(get_data_from_data_table_columns("Items", approved_partial_req_line_not_satisfying_AG2.description, "Req #", csv)).to have_content approved_partial_req_header_not_satisfying_AG2.id
           # Requisition with incomplete billing
-          expect(get_data_from_column_on_requisition_table("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #")).to have_content draft_incomplete_billing_req_header.id
+          expect(get_data_from_data_table_columns("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #", csv)).to have_content draft_incomplete_billing_req_header.id
         end
       end
       context 'Colombia User restricted to default chart of account(COA B) restriction' do
@@ -416,13 +419,17 @@ describe RequisitionHeadersController do
           get :requisition_header_list_csv
         end
         it 'Requisition doc(with complete/incomplete/partial billing) access based on account group restriction for the Colombia User' do
-           # Lines table should contain only 3 rows one is Requisition header,other is incomplete billing line requisition line and the last is default draft cart row.
-          expect(response.body.count("\n")).to eq 3
-          expect(get_data_from_column_on_requisition_table("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #")).to have_content draft_incomplete_billing_req_header.id
+          csv = CSV.parse(response.body, :headers => true)
+          # Lines table should contain only 3 rows one is Requisition header,other is incomplete billing line requisition line and the last is default draft cart row.
+          expect(response.body.count("\n")).to eq 2
+          expect(get_data_from_data_table_columns("Items", draft_incomplete_billing_req_header.requisition_lines.last.description, "Req #", csv)).to have_content draft_incomplete_billing_req_header.id
         end
+      end
+      def get_data_from_data_table_columns(header1, document_no , line_header, csv)
+        rows = csv.find_all {|row| row[header1].include? document_no}
+        lines = rows.map { |line| line[line_header] }
       end
     end
   end
 end
-
 
